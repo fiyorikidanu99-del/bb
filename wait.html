@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Journey 💖</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#2b0033,#ff4b91,#ffb6c1);
+    color:white;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+h1{
+    font-size:60px;
+    animation:fade 2s ease;
+}
+
+p{
+    font-size:28px;
+    margin-top:20px;
+    animation:fade 3s ease;
+}
+
+.emoji{
+    font-size:90px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="emoji">😊❤️</div>
+
+<h1>Wait a minute, my love...</h1>
+
+<p>I have one more surprise waiting for you... 🎁</p>
+
+<script>
+
+setTimeout(function(){
+
+window.location.href="letter.html";
+
+},6000);
+
+</script>
+
+</body>
+</html>

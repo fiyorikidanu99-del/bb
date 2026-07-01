@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cake 🎂</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(135deg,#2b0033,#ff4b91,#ffb6c1);
+font-family:Arial;
+color:white;
+text-align:center;
+}
+
+h1{
+font-size:28px;
+margin-bottom:20px;
+}
+
+#cake{
+font-size:70px;
+margin:20px 0;
+}
+
+#message{
+font-size:18px;
+min-height:80px;
+margin:10px;
+line-height:1.5;
+}
+
+button{
+padding:12px 20px;
+margin:8px;
+border:none;
+border-radius:20px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#blowBtn{
+background:#ff4b91;
+color:white;
+}
+
+#nextBtn{
+display:none;
+background:white;
+color:#ff4081;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday My Love 🎂</h1>
+
+<div id="cake">🎂🕯️🕯️</div>
+
+<div id="message"></div>
+
+<button id="blowBtn" onclick="blow()">
+Blow Candles 💨
+</button>
+
+<button id="nextBtn" onclick="goNext()">
+Next 💖
+</button>
+
+<script>
+
+function blow(){
+
+// change cake
+document.getElementById("cake").innerHTML = "🎂✨";
+
+// funny message
+document.getElementById("message").innerHTML = `
+💨 Pffffff...<br><br>
+😂 WHOA!! You blew it so hard!<br><br>
+But don’t worry ❤️<br><br>
+Something special is coming...
+`;
+
+// show next button after 6 seconds
+setTimeout(()=>{
+document.getElementById("nextBtn").style.display = "inline-block";
+},6000);
+
+}
+
+function goNext(){
+window.location.href = "wait.html";
+}
+
+</script>
+
+</body>
+</html>

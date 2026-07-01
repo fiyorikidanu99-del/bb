@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>God Mode Love Game 💖</title>
+
+<style>
+
+/* 🌌 BACKGROUND */
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:radial-gradient(circle,#0a0015,#ff2e7a,#ffb6c1);
+font-family:Arial;
+color:white;
+text-align:center;
+overflow:hidden;
+transition:all 0.5s ease;
+}
+
+/* 💖 TITLE */
+h1{
+font-size:42px;
+text-shadow:0 0 25px white;
+}
+
+/* 💌 CARD */
+.card{
+background:rgba(255,255,255,0.12);
+padding:35px;
+border-radius:25px;
+backdrop-filter:blur(12px);
+box-shadow:0 0 35px rgba(255,255,255,0.3);
+max-width:450px;
+animation:pop 0.8s ease;
+}
+
+/* ❓ TEXT */
+#question{
+font-size:20px;
+margin-bottom:20px;
+}
+
+/* 🎮 BUTTONS */
+button{
+margin:10px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.yes{
+background:white;
+color:#ff4081;
+}
+
+.no{
+background:black;
+color:white;
+position:relative;
+}
+
+/* hover */
+button:hover{
+transform:scale(1.1);
+}
+
+/* ✨ animations */
+@keyframes pop{
+from{transform:scale(0.8); opacity:0;}
+to{transform:scale(1); opacity:1;}
+}
+
+/* ❤️ hearts */
+.heart{
+position:absolute;
+animation:floatUp 5s linear;
+}
+
+@keyframes floatUp{
+from{transform:translateY(0);}
+to{transform:translateY(-120vh);}
+}
+
+/* 💥 heartbeat flash */
+.flash{
+animation:flash 0.4s ease;
+}
+
+@keyframes flash{
+0%{background:#ff2e7a;}
+100%{background:radial-gradient(circle,#0a0015,#ff2e7a,#ffb6c1);}
+}
+
+/* 🔒 secret glow */
+.secret{
+text-shadow:0 0 20px gold;
+color:gold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>💖 GOD MODE LOVE GAME 💖</h1>
+
+<div class="card" id="box">
+
+<p id="question">Do you trust me completely? ❤️</p>
+
+<button class="yes" onclick="answer(true)">Yes 💖</button>
+<button class="no" onclick="answer(false)">No 😜</button>
+
+</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let step = 0;
+let trustScore = 0;
+
+/* 🎮 GAME ENGINE */
+function answer(val){
+
+let q = document.getElementById("question");
+let body = document.body;
+
+/* 🎵 start music */
+let music = document.getElementById("music");
+music.volume = 0.3;
+music.play();
+
+/* 💔 wrong answer reaction */
+if(!val){
+body.classList.add("flash");
+q.innerHTML = "😜 Your heart still says YES...";
+setTimeout(()=>body.classList.remove("flash"),500);
+return;
+}
+
+/* 💖 correct path */
+step++;
+trustScore++;
+
+if(step === 1){
+q.innerHTML = "Will you stay with me forever? 💍";
+body.style.background = "radial-gradient(circle,#1a001f,#ff4b91,#ffb6c1)";
+}
+
+else if(step === 2){
+q.innerHTML = "Do you love me more than anything in the world? ❤️";
+body.style.background = "radial-gradient(circle,#2a0033,#ff2e7a,#ffb6c1)";
+}
+
+else if(step === 3){
+q.innerHTML = "One last secret... 💖";
+body.style.background = "radial-gradient(circle,#000,#ff2e7a,#ffb6c1)";
+}
+
+/* 🔒 FINAL SECRET LEVEL */
+else if(step === 4){
+
+document.getElementById("box").innerHTML = `
+<h2 class="secret">💖 Love Fully Unlocked 💖</h2>
+<p>You are my forever person...</p>
+<p>Preparing your destiny 💍...</p>
+`;
+
+setTimeout(()=>{
+window.location.href="cake.html";
+},3000);
+
+}
+
+}
+
+/* ❤️ floating hearts */
+function heart(){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.top="100vh";
+h.style.fontSize=(15+Math.random()*25)+"px";
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),5000);
+}
+
+setInterval(heart,200);
+
+</script>
+
+</body>
+</html>
